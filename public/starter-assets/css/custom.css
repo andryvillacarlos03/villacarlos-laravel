@@ -1,0 +1,151 @@
+/* Base Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ebebeb;
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 100vh; /* Fill viewport height */
+  align-items: center; /* Center vertically */
+}
+
+/* Left and Right content split */
+.main-content .left-content,
+.main-content .right-content {
+  width: 50%;
+  min-height: 50vh;
+}
+
+.main-content .left-content {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  justify-content: center;
+}
+
+.main-content .right-content {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  justify-content: center;
+}
+
+.main-content .left-content .brand-name {
+  color: #8FD14F;
+  font-size: 5rem;
+  font-weight: bold;
+  margin: 10px 0px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sample-descript {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.btn-register-login-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 45%;
+}
+
+.btn-1 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border: 1px solid #8FD14F;
+  background: white;
+  color: black;
+  padding: 10px 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-decoration: none; /* remove underline */
+  z-index: 1;
+}
+
+.btn-1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: #8FD14F;
+  z-index: -1; /* behind text */
+  transition: width 0.4s ease;
+}
+
+.btn-1:hover::before {
+  width: 100%;
+}
+
+.btn-1:hover {
+  color: white;
+}
+
+
+
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .main-content .left-content,
+  .main-content .right-content {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .main-content .left-content .brand-name {
+    font-size: 3rem;
+  }
+
+  .sample-descript {
+    font-size: 1.1rem;
+  }
+
+  .btn-register-login-section {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-1 {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-content .left-content .brand-name {
+    font-size: 2.5rem;
+  }
+
+  .sample-descript {
+    font-size: 1rem;
+  }
+
+  .btn-register-login-section {
+    width: 100%;
+  }
+
+  .btn-1 {
+    width: 100%;
+    text-align: center;
+  }
+}
