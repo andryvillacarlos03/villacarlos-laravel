@@ -28,7 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('page.landing', absolute: false));
+        return redirect()->intended(route('splash', absolute: false));
     }
 
     /**
@@ -42,6 +42,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+       
+        return redirect()->intended(route('splash.logout', absolute: false));
     }
 }

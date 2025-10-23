@@ -34,6 +34,9 @@ Route::middleware(['verified','auth'])->group(function() {
 
     Route::get('/testimonial',fn() => view('testimonial'))
                       ->name('page.testimonial');
+
+    Route::get('/splash',fn() => view('splash'))
+                      ->name('splash');
 });
 
 // <------------------ Profile Page Route ------------------>
@@ -71,9 +74,14 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 
+ Route::get('/splash-logout',fn() => view('logoutSplash'))
+                      ->name('splash.logout');
+
 Route::fallback(function () {
     return response()->view('errors.notFound',[],404);
 });
+
+
 
 
 require __DIR__.'/auth.php';
