@@ -1,4 +1,4 @@
-/* Base Reset */
+/* ===== Base Reset ===== */
 * {
   padding: 0;
   margin: 0;
@@ -9,72 +9,78 @@ body {
   width: 100%;
   min-height: 100vh;
   background-color: #ebebeb;
+  font-family: 'Poppins', sans-serif;
 }
 
+/* ===== Main Layout ===== */
 .main-content {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  min-height: 100vh; /* Fill viewport height */
-  align-items: center; /* Center vertically */
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
-/* Left and Right content split */
 .main-content .left-content,
 .main-content .right-content {
-  width: 50%;
+  flex: 1 1 50%;
   min-height: 50vh;
+  padding: 2rem;
 }
 
 .main-content .left-content {
   display: flex;
   flex-direction: column;
-  padding: 30px;
   justify-content: center;
 }
 
-.main-content .right-content {
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  justify-content: center;
-}
-
-.main-content .left-content .brand-name {
+.brand-name {
   color: #8FD14F;
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: bold;
-  margin: 10px 0px;
-  font-family: 'Poppins', sans-serif;
+  margin: 10px 0;
 }
 
 .sample-descript {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   margin-bottom: 20px;
+  color: #333;
+  line-height: 1.6;
 }
 
+/* ===== Buttons Section ===== */
 .btn-register-login-section {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  width: 45%;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 420px;
+  margin-top: 1.5rem;
 }
 
+/* Equal width modern button */
 .btn-1 {
   position: relative;
-  display: inline-block;
+  flex: 1;
   overflow: hidden;
-  border: 1px solid #8FD14F;
+  border: 2px solid #8FD14F;
   background: white;
-  color: black;
-  padding: 10px 50px;
-  border-radius: 5px;
+  color: #222;
+  font-weight: 600;
+  padding: 12px 0;
+  border-radius: 50px;
   cursor: pointer;
-  transition: color 0.3s ease;
-  text-decoration: none; /* remove underline */
+  text-align: center;
+  text-decoration: none;
   z-index: 1;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(143, 209, 79, 0.15);
 }
 
+/* Hover fill animation */
 .btn-1::before {
   content: "";
   position: absolute;
@@ -83,8 +89,9 @@ body {
   height: 100%;
   width: 0%;
   background: #8FD14F;
-  z-index: -1; /* behind text */
-  transition: width 0.4s ease;
+  z-index: -1;
+  transition: width 0.35s ease;
+  border-radius: 50px;
 }
 
 .btn-1:hover::before {
@@ -93,24 +100,24 @@ body {
 
 .btn-1:hover {
   color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(143, 209, 79, 0.3);
 }
 
-
-
-
-/* Responsive Styles */
+/* ===== Responsive Design ===== */
 @media (max-width: 992px) {
   .main-content {
     flex-direction: column;
+    text-align: center;
   }
 
   .main-content .left-content,
   .main-content .right-content {
     width: 100%;
-    padding: 20px;
+    padding: 1.5rem;
   }
 
-  .main-content .left-content .brand-name {
+  .brand-name {
     font-size: 3rem;
   }
 
@@ -119,20 +126,21 @@ body {
   }
 
   .btn-register-login-section {
-    width: 100%;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 100%;
   }
 
   .btn-1 {
     width: 100%;
-    text-align: center;
-    padding: 12px 0;
+    font-size: 1rem;
+    padding: 14px 0;
   }
 }
 
 @media (max-width: 576px) {
-  .main-content .left-content .brand-name {
+  .brand-name {
     font-size: 2.5rem;
   }
 
@@ -140,12 +148,8 @@ body {
     font-size: 1rem;
   }
 
-  .btn-register-login-section {
-    width: 100%;
-  }
-
   .btn-1 {
-    width: 100%;
-    text-align: center;
+    font-size: 0.95rem;
+    padding: 12px 0;
   }
 }
